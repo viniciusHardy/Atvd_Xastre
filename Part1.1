@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int* gera_vetor() { ///função 1
+int *vetor;
+
+for(int i=0; i<1000; i++){
+    *vetor=rand()%9999;}
+    return vetor;
+}
+
+void BubbleSort(int *vetor){ ///função 2
+int k, j, aux;
+
+for (k = 1; k < 1000; k++){
+    printf("\n [%d] ", k);
+
+for (j = 0; j < 999; j++){
+    printf(" %d ", j);
+if (vetor[j] > vetor[j + 1]){
+    aux = vetor[j];
+    vetor[j] = vetor[j + 1];
+    vetor[j + 1] = aux;
+}
+}
+}
+}
+
+void imprime_vetor (int *vetor){ ///função 3
+
+}
+
+void media (int *vetor){ ///função 4
+
+}
+
+void mediana (int *vetor){ ///função 5
+
+}
+
+void maior_menor (int *vetor, int* *maior, int* *menor){ ///função 6
+int i;
+
+(*maior)=(*menor)=vetor;
+for (i=1; i<1000; i++) {
+	if (*(*maior) < vetor[i]) (*maior) = &vetor[i]; /// *(*maior) - compara o conteúdo
+	if (*(*menor) > vetor[i]) (*menor) = &vetor[i]; /// (*menor) - é o endereço
+					   }
+
+printf("Maior = %d", *maior);
+printf("Menor = %d", *menor);
+}
+
+
+int main(){
+    int *vet;
+    *vet=gera_vetor();
+    BubbleSort(*vet);
+
+return 0;
+}
