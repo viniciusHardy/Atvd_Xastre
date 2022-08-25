@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int* gera_vetor (){
+int i;
+int *vet;
+
+vet = (int*)calloc(1000, sizeof(int));
+for(i=0; i<1000;i++)
+	vet[i]=rand()%9999;		
+		
+	return vet;
+}
+
+float calc_media(){
+int i;
+float media=0;
+int *vet;
+
+vet=gera_vetor();
+for(i=0;i<1000;i++){
+	media = media + vet[i];
+	}
+	
+	return media/1000;
+}
+
+float calc_mediana(){
+float mediana;
+int i;
+int *vet;
+
+vet=gera_vetor(); ///chamar função de bubble sort
+for(i=0;i<1000;i++){
+	mediana = (vet[499] + vet[500]) / 2;
+}
+
+	return mediana;
+}
+
+void maior_menor(){
+int *vet;
+int i;
+
+vet=gera_vetor(); ///rever
+	printf("\nMenor dado = %d", vet[0]);
+	printf("\nMaior dado = %d", vet[999]);
+
+}
+
+int main() {
+int *v;
+int i;
+float media, mediana;
+
+v=gera_vetor();
+for(i=0; i<1000;i++) {
+	printf(" %5d", v[i]); }
+
+media=calc_media();
+printf("\n\nMedia do vetor = %.2f", media);	
+mediana=calc_mediana();
+printf("\nMediana do vetor = %.2f", mediana);
+
+maior_menor();
+
+	return 0;
+}
