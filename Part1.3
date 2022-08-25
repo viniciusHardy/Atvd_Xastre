@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int* gera_vetor (){
+	int i;
+	int *vet;
+	vet = (int*)calloc(1000, sizeof(int));
+	for(i=0; i<1000;i++){
+		vet[i]=rand()%9999;	///[Warning] assignment makes pointer from integer without a cast
+		printf(" %d", vet[i]);
+		}
+	return vet;
+}
+
+int main() {
+	int *v;
+	int i;
+
+	v=gera_vetor();
+	printf("\n\n\n\n\n\n\n\n");
+
+	for(i=0; i<1000;i++){
+	printf(" %d", v[i]);
+	}
+
+	return 0;
+}
