@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void gera_vetor(int *vet){
+int i;
+
+vet = (int*)calloc(10, sizeof(int));
+for(i=0; i<10;i++)
+	vet[i]=rand()%9;		
+		
+}
+
+void bubble_sort(int *vet){
+int i, j, aux;
+
+for(j=9;j>=0;j--){
+	for(i=0;i<j;i++){
+		if(vet[i]>vet[i+1]){
+			aux=vet[i];
+			vet[i]=vet[i+1];
+			vet[i+1]=aux;
+		}
+	}
+}
+
+}	
+	
+void imprime_vetor(int *vet){
+int i;
+
+gera_vetor(vet);
+for(i=0;i<10;i++){
+	printf(" %5d", vet[i]);
+}
+
+}
+
+float calc_media(int *vet){
+int i;
+float media=0;
+
+imprime_vetor(vet); 
+for(i=0;i<10;i++){
+	media = media + vet[i];
+}
+	
+	return media/10;
+}	
+	
+float calc_mediana(int *vet){
+float mediana;
+int i;
+
+imprime_vetor(vet); 
+for(i=0;i<10;i++){
+	mediana = (vet[4] + vet[5]) / 2;
+}
+
+	return mediana;
+}
+
+void maior_menor(int *vet){
+int i;
+
+imprime_vetor(vet);
+	printf("\nMenor dado = %d", vet[0]);
+	printf("\nMaior dado = %d", vet[9]);
+
+}
+
+int main() {
+int *v;
+int i;
+float media, mediana;
+
+gera_vetor(v);
+for(i=0; i<10;i++) {
+	printf(" %5d", v[i]); } 
+	
+imprime_vetor(v);
+
+media=calc_media(v);
+printf("\n\nMedia do vetor = %.2f", media);	
+mediana=calc_mediana(v);
+printf("\nMediana do vetor = %.2f", mediana);
+
+maior_menor(v);
+
+	return 0;
+}
